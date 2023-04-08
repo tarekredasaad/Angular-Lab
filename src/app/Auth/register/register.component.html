@@ -1,0 +1,127 @@
+<!-- <div class="container">
+  <form [formGroup]="registerationForm" #userForm="ngForm" novalidate (ngSubmit)="submitData()">
+      {{userForm.value |json}}
+       <br>
+      {{registerationForm.value |json}}
+      <br>
+      {{userModel|json}}
+      <div class="form-group">
+          <label>User Name</label>
+          <input type="text" formControlName="userName" required
+           [class.is-invalid]="userName?.invalid &&userName?.touched"
+             [(ngModel)]="userModel.username" name="txtName"
+              class="form-control">
+          <small class="text-danger" *ngIf="userName?.invalid&&userName?.touched">User name is required</small>
+      </div>
+
+      <div class="from-group">
+          <label>Email :</label>
+          <input type="email" formControlName="email" name="txtEmail" [(ngModel)]="userModel.email"   class="form-control">
+      </div>
+
+      <div class="forrm-group">
+          <label>Password</label>
+          <input type="password" formControlName="password" required name="password"
+           [(ngModel)]="userModel.password"   class="form-control">
+           <div *ngIf="password.errors&&password.touched">
+              <small class="text-danger" *ngIf="password.errors['required']">password is required</small>
+              <small class="text-danger" *ngIf="password.errors['pattern']">password must contain lower character and upper character</small> pattern="/^[a-z]*$/"
+          </div>
+        </div>
+<br>
+      <div class="forrm-group">
+          <label>Password</label>
+          <input type="password" formControlName="confirmpassword" required name="confirmpassword" [class.is-invalid]="" [(ngModel)]="userModel.confirmpassword"   class="form-control">
+          <small class="text-danger" *ngIf="registerationForm.errors?.['misMatch']">Password and confirm password not match</small>
+           <div *ngIf="confirmpassword.value != password.value && confirmpassword.touched">
+              <small class="text-danger" >confirmpassword is not match password</small>
+              <small class="text-danger" *ngIf="phone.errors['pattern']">Phone must be 11 digits</small>
+          </div>
+      </div>
+<br>
+      <div class="from-group">
+          <select class="custom-select" [(ngModel)]="userModel.media" name="media" #media="ngModel" >
+              <option>
+                 Hear about us from
+              </option>
+              <option *ngFor="let topic of topics">
+                  {{topic}}
+              </option>
+          </select>
+      </div>
+      <br>
+       <div class="from-check mb-3">
+          <input type="checkbox" class="form-check-input" [(ngModel)]="userModel.offer" name="chkOffers" #offer="ngModel" >
+          <label class="from-check-label">
+              Send me new offers
+          </label>
+      </div>
+
+      <input type="submit" [disabled]="userForm.form.invalid" class="btn btn-primary" value="submit">
+
+  </form>
+</div> -->
+<!-- -->
+<div class="container">
+    <form [formGroup]="registerationForm" #userForm="ngForm"  (ngSubmit)="submitData()">
+        <!-- {{userForm.value |json}} -->
+         <br>
+        <!-- {{registerationForm.value |json}} -->
+        <br>
+        <!-- {{userModel|json}} -->
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" formControlName="userName" required
+             [class.is-invalid]="userName?.invalid &&userName?.touched"
+                name="txtName"
+                class="form-control">
+            <small class="text-danger" *ngIf="userName?.invalid&&userName?.touched">User name is required</small>
+        </div>
+
+        <div class="from-group">
+            <label>Email :</label>
+            <input type="email" formControlName="email" name="txtEmail"    class="form-control">
+        </div>
+
+        <div class="forrm-group">
+            <label>Password</label>
+            <input type="password" formControlName="password" required name="password"
+               class="form-control">
+            <!-- <div *ngIf="password.errors&&password.touched">
+                <small class="text-danger" *ngIf="password.errors['required']">password is required</small>
+                <small class="text-danger" *ngIf="password.errors['pattern']">password must contain lower character and upper character</small> pattern="/^[a-z]*$/"
+            </div> -->
+          </div>
+  <br>
+        <div class="forrm-group">
+            <label>Password</label>
+            <input type="password" formControlName="confirmPassword" required name="confirmpassword" [class.is-invalid]=""    class="form-control">
+            <small class="text-danger" *ngIf="registerationForm.errors?.['misMatch']">Password and confirm password not match</small>
+            <!-- <div *ngIf="confirmpassword.value != password.value && confirmpassword.touched">
+                <small class="text-danger" >confirmpassword is not match password</small>
+                <small class="text-danger" *ngIf="phone.errors['pattern']">Phone must be 11 digits</small>
+            </div> -->
+        </div>
+  <br>
+        <div class="from-group">
+            <select class="custom-select" name="media" >
+                <option>
+                   Hear about us from
+                </option>
+                <option *ngFor="let topic of topics">
+                    {{topic}}
+                </option>
+            </select>
+        </div>
+        <br>
+        <!-- <div class="from-check mb-3">
+            <input type="checkbox" class="form-check-input" [(ngModel)]="userModel.offer" name="chkOffers" #offer="ngModel" >
+            <label class="from-check-label">
+                Send me new offers
+            </label>
+        </div> -->
+
+        <input type="submit" [disabled]="userForm.form.invalid" class="btn btn-primary" value="submit">
+
+    </form>
+  </div>

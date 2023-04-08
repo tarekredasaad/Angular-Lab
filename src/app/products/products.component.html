@@ -1,0 +1,83 @@
+<p>products works!</p>
+<div *ngIf="isLoggedIn; then thenBlock; else elseBlcok">
+
+</div>
+
+<ng-template #thenBlock>
+  <h2>
+       {{discount |percent}}
+  </h2>
+</ng-template>
+
+
+<ng-template #elseBlcok>
+  <h2>
+    No discount
+  </h2>
+</ng-template>
+<app-product-list></app-product-list>
+<!-- <div  index as i;odd as o ; even as e; first as f ;last as l">
+</div> -->
+<!-- <input type="text"  #txtInput  />{{message}} -->
+<input type="text" [(ngModel)]="name" />
+{{name}}
+<br>
+<select name="" id="">
+  <option *ngFor="let cat of categories ;" value="{{cat}}">{{cat}}</option>
+</select>
+
+<!-- <ng-template #buy> && personid == {{product.id}}
+</ng-template> -->
+<table *ngIf="show" class="table table-warning" style="background-color: aqua;">
+  <tr>
+    <td>title</td>
+    <td>image</td>
+    <td>price</td>
+  </tr>
+  <tr *ngFor="let product of Products ; ">
+    <td>{{product.title}}</td>
+    <td><img src="assets/images/OIP.jpg" height="45" width="45" alt=""></td>
+    <td>{{product.price}}</td>
+  </tr>
+</table>
+<div class=" text-center d-block " ><button class="btn btn-primary" (click)="hides()">Buy</button> </div>
+<div class="text-center text-danger" style="font-size: 20px;font-weight: bold;">{{storeName |uppercase}}</div>
+<div *ngIf="Isbuy ;">
+
+  <div style="color:red">
+    thanks to burshase our products {{name}}
+  </div>
+</div>
+<div class="d-flex flex-wrap">
+  <div *ngFor="let product of Products ; index as i;odd as o ; even as e; first as f ;last as l">
+    <div class="card m-3"*ngIf="!product.isbuy  ; " style="width: 18rem;">
+      <div class="card-title">Title : {{product.title}} </div>
+      <img src="assets/images/OIP.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p>Price : {{product.price}}</p>
+        <!-- {{product.Isbuy = true}} -->
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class=" text-center"><button class="btn btn-primary " (click)="buy(product.id)">Buy</button></div>
+      </div>
+    </div>
+ </div>
+    <!-- <div class="card  m-3" style="width: 18rem;">
+      <img src="assets/images/OIP.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+    <div class="card m-3" style="width: 18rem;">
+      <div class="card-title"></div>
+      <img src="assets/images/OIP.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+    <div class="card m-3" style="width: 18rem;">
+      <img src="assets/images/OIP.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div> -->
+</div>

@@ -1,0 +1,21 @@
+<p>comments works!</p>
+{{errorMessage}}
+<div class="d-flex flex-wrap">
+  <div *ngFor="let comment of comments ; index as i;odd as o ; even as e; first as f ;last as l">
+    <div class="card m-3"   style="width: 18rem;">
+      <div class="card-title">Name : {{comment.name}} </div>
+      <!-- <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
+
+        <img src="assets/images/user_male.jpg" class="card-img-top img-cover" alt="...">
+      </div> -->
+      <div class="card-body">
+        <p>Email : {{comment.email}}</p>
+        <p>Content : {{comment.body}}</p>
+        <!-- {{product.Isbuy = true}} -->
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button class="btn btn-success" (click)="comment()">its comments</button>
+        <br> <button class="btn btn-info" (click)="GetComment()">Get Comments</button>
+      </div>
+    </div>
+ </div>
+</div>

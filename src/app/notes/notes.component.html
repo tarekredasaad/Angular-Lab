@@ -1,0 +1,58 @@
+<div class="container">
+  <form [formGroup]="notesForm" #userForm="ngForm" >
+      <br>
+
+
+      <div class="from-group">
+          <label>Name :</label>
+          <input type="text" name="name" formControlName="name"   class="form-control">
+          <small class="text-danger" *ngIf="name?.errors?.['forbiddenName']">{{name?.errors?.['forbiddenName'].value}} is not allowed</small>
+        </div>
+
+      <div class="from-group">
+        <label>Product :</label>
+        <select class="custom-select" name="media" >
+
+            <option *ngFor="let product of products">
+                {{product.title}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-check mb-3">
+      <!-- (click)="setEmailValidation()" -->
+      <input type="checkbox"
+             formControlName="checkDiscount"
+              (click)="showDiscount()"
+             class="form-check-input">
+       <label class="form-check-label">with discount</label>
+  </div>
+  <div *ngIf="discountChecked" class="form-check mb-3">
+    <label class="form-check-label">write discount</label>
+    <!-- (click)="setEmailValidation()" -->
+    <input type="text" name="discount" required
+           formControlName="discount"
+           placeholder="write discount value in percent"
+           class="form-control">
+</div>
+
+      <div  class="forrm-group">
+          <label>Note</label>
+          <input type="text" formControlName="note" required name="note" class="form-control">
+          <div >
+              <!-- <small class="text-danger" *ngIf="password.errors['required']">password is required</small> -->
+              <!-- <small class="text-danger" *ngIf="password.errors['pattern']">password must contain lower character and upper character</small> pattern="/^[a-z]*$/" -->
+          </div>
+        </div>
+        <button (click)="addAlternativeEmail()" class="btn btn-success float-right">Add New Email</button>
+        <div formArrayName="aleternativeEmails"
+             *ngFor="let email of aleternativeEmails.controls; let i=index">
+             <label>Alternative email # {{i+1}}</label>
+             <input type="text" class="form-control" [formControlName]="i">
+             <button (click)="deleteEmail(i)" class="btn btn-danger float-right">-</button>
+        </div>
+
+      <input type="submit"  class="btn btn-primary" value="submit">
+
+  </form>
+</div>

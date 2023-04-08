@@ -1,0 +1,9 @@
+<router-outlet></router-outlet>
+<p>product-list works!</p>
+<div *ngFor="let product of products">
+  {{product.title}}
+  <button routerLink="/product/{{product.id}}" (click)="navigate(product.id)">Details</button>
+</div>
+
+<!-- routerLink="/product/{{product.id}}" -->
+{{errorMessage}}

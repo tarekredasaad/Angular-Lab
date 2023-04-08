@@ -1,0 +1,19 @@
+<p>users works!</p>
+{{errorMessage}}
+<div class="d-flex flex-wrap">
+  <div *ngFor="let user of users ; index as i;odd as o ; even as e; first as f ;last as l">
+    <div class="card m-3"   style="width: 18rem;">
+      <div class="card-title">Name : {{user.name}} </div>
+      <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
+
+        <img src="assets/images/user_male.jpg" class="card-img-top img-cover" alt="...">
+      </div>
+      <div class="card-body">
+        <p>UserName : {{user.username}}</p>
+        <p>Email : {{user.email}}</p>
+        <!-- {{product.Isbuy = true}} -->
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+ </div>
+</div>

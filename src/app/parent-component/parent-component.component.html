@@ -1,0 +1,16 @@
+<p>parent-component works!</p>
+<table  class="table table-warning" style="background-color: aqua;">
+  <tr>
+    <td>title</td>
+    <td>image</td>
+    <td>price</td>
+  </tr>
+<tr *ngFor="let product of messageFromChild ; ">
+  <td>{{product.title}}</td>
+  <td><img src="assets/images/OIP.jpg" height="45" width="45" alt=""></td>
+  <td>{{product.price}}</td>
+</tr>
+</table>
+<app-child-component (childEvent)="messageFromChild=$event"></app-child-component>
+<br>
+<button (click)="Invoke()">invoke Function</button>
